@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vegetarian Tacos - Scrumptious Recipes</title>
+  <title>{{ recipe_object.title }} - Scrumptious Recipes</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/recipes.css' %}">
 </head>
@@ -15,9 +15,10 @@
     </nav>
   </header>
   <main>
-    <h1>Vegetarian Tacos</h1>
-    <img src="https://mks.io/public-tacos">
+    <h1>{{ recipe_object.title }}</h1>
+    <img src="{{ recipe_object.picture }}" alt="{{ recipe_object.title }}">
     <div>4.3 stars</div>
+    <p>{{ recipe_object.description }}</p>
     <h2>Ingredients</h2>
     <table class="ingredients-table">
       <thead>

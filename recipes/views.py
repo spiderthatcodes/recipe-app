@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Recipe
 
+
+def show_recipes(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+    context = {
+        "recipe_object": recipe,
+    }
+
+    return render(request, "detail.html", context)
 
 def recipe_list(request):
     recipes = Recipe.objects.all()
     context = {
-        "recipes": recipes,
+        "recipe_list": recipes,
     }
-
-    return render(request, "detail.html", context)
+    return render(request, "list.html", context)
