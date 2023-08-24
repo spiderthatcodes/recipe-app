@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ recipe_object.title }} - Scrumptious Recipes
+{% endblock title%}
+{% block content %}
+<header>
+  <nav>
+      <a href="{% url 'recipe_list' %}">Main page</a>
+      <a href="{% url 'edit_recipe' recipe_object.id %}">Edit</a>
+      <a href="{% url 'delete_recipe' recipe_object.id %}">Delete</a>
+  </nav>
+</header>
+<main>
+  <h1>{{ recipe_object.title }}</h1>
+  <img
+      src="{{ recipe_object.picture }}"
+      alt="{{ recipe_object.title }}"
+  />
+  <div>4.3 stars</div>
+  <p>{{ recipe_object.description }}</p>
+  <h2>Ingredients</h2>
+  <table class="ingredients-table">
+      <thead>
+          <tr>
+              <th>Amount</th>
+              <th>Food item</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1 cup</td>
+              <td>Green beans</td>
+          </tr>
+          <tr>
+              <td>3 ears</td>
+              <td>Fresh corn</td>
+          </tr>
+          <tr>
+              <td>2 cups</td>
+              <td>Tomatillo salsa</td>
+          </tr>
+          <tr>
+              <td>8</td>
+              <td>Corn tortillas</td>
+          </tr>
+          <tr>
+              <td>0.5 cups</td>
+              <td>Cotija cheese</td>
+          </tr>
+      </tbody>
+  </table>
+  <h2>Steps</h2>
+  <ol>
+      <li>Blanch the green beans</li>
+      <li>Grill the green beans and the ears of corn</li>
+      <li>Chop the green beans</li>
+      <li>Slice the corn off the cob</li>
+      <li>Grill the tortillas</li>
+      <li>Assemble the tacos with veggies, salsa, and cheese</li>
+  </ol>
+</main>
+{% endblock content %}
