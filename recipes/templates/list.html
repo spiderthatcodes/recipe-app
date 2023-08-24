@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe List</title>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Scrumptious Recipes</title>
+        {% load static %}
+        <link
+            rel="stylesheet"
+            href="{% static 'css/recipes.css' %}"
+        />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="./list.html">Main page</a>
+            </nav>
+        </header>
+        <main>
+            <h1>Recipes</h1>
+            <h2>All the food that's fit to eat</h2>
+            <div class="recipe-grid">
+                {% for recipe in recipe_list %}
+                <div>
+                    <h3>
+                        <a href="detail.html/{{ recipe.id }}">{{ recipe.title }}</a>
+                    </h3>
+                    <img src="{{ recipe.picture }}" />
+                    <div>4.3 stars</div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+        <footer>Made with love by Scrumptious Recipes</footer>
+    </body>
 </html>

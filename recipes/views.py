@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Recipe
+from .forms import RecipeForm
 
 
 def show_recipes(request, id):
@@ -16,3 +17,7 @@ def recipe_list(request):
         "recipe_list": recipes,
     }
     return render(request, "list.html", context)
+
+
+def create_recipe(request):
+    form = RecipeForm()
