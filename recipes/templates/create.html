@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Add Recipe</title>
+        {% load static %}
+        <link
+            rel="stylesheet"
+            href="{% static 'css/recipes.css' %}"
+        />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="{% url 'recipe_list' %}">Main page</a>
+                <a href="{% url 'create_recipe' %}">Add Recipes</a>
+            </nav>
+        </header>
+        <main>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Add</button>
+            </form>
+        </main>
+        <footer>Made with love by Scrumptious Recipes</footer>
+    </body>
 </html>

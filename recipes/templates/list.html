@@ -20,7 +20,8 @@
     <body>
         <header>
             <nav>
-                <a href="./list.html">Main page</a>
+                <a href="{% url 'recipe_list' %}">Main page</a>
+                <a href="{% url 'create_recipe' %}">Add Recipes</a>
             </nav>
         </header>
         <main>
@@ -30,9 +31,10 @@
                 {% for recipe in recipe_list %}
                 <div>
                     <h3>
-                        <a href="detail.html/{{ recipe.id }}">{{ recipe.title }}</a>
+                        <a href="{% url 'show_recipes' recipe.id %}">{{ recipe.title }}</a>
                     </h3>
-                    <img src="{{ recipe.picture }}" />
+                    <p>{{ recipe.created_on | date:'F j, Y' }}</p>
+                    <img src="{{ recipe.picture | default:'https://a-z-animals.com/media/2023/01/iStock-1440573925.jpg' }}" />
                     <div>4.3 stars</div>
                 </div>
                 {% endfor %}
