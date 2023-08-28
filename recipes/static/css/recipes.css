@@ -9,10 +9,13 @@ body {
   }
 
   footer {
-    padding: 24px 0;
+    /* padding: 24px 0; */
     background-color: #B4CF66;
     margin-top: 32px;
-    padding: 32px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 34px;
   }
 
   img {
