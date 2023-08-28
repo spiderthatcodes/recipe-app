@@ -1,10 +1,15 @@
-{% extends 'base.html' %} {% block title %} {{ recipe_object.title }} -
-Scrumptious Recipes {% endblock title%} {% block content %}
+{% extends 'base.html' %}
+{% block title %}
+{{ recipe_object.title }} - Scrumptious Recipes
+{% endblock title%}
+{% block content %}
 <header>
     <nav>
+        <div id="left">
         <a href="{% url 'recipe_list' %}">Main page</a>
         <a href="{% url 'edit_recipe' recipe_object.id %}">Edit</a>
         <a href="{% url 'delete_recipe' recipe_object.id %}">Delete</a>
+    </div>
     </nav>
 </header>
 <main>
@@ -26,7 +31,7 @@ Scrumptious Recipes {% endblock title%} {% block content %}
         <tbody>
             {% for ingredient in recipe_object.ingredients.all %}
             <tr>
-                <td>{{ingredient.food_item}}</td>
+                <td>{{ ingredient.food_item }}</td>
                 <td>{{ ingredient.amount }}</td>
             </tr>
 

@@ -5,16 +5,20 @@ Scrumptious Recipes
 {% block content %}
 <header>
     <nav>
-        <a href="{% url 'recipe_list' %}">Main page</a>
-        <a href="{% url 'create_recipe' %}">Add Recipes</a>
-        {% if user.is_authenticated %}
-        Hello, {{ user.username }}
-        <a href="{% url 'my_recipe_list' %}">My recipes</a>
-        <a href="{% url 'user_logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'signup' %}">Sign Up</a>
-        <a href="{% url 'user_login' %}">Login</a>
-        {% endif %}
+        <div id="left">
+            <a href="{% url 'recipe_list' %}">Main page</a>
+            <a href="{% url 'create_recipe' %}">Add Recipes</a>
+        </div>
+        <div id="right">
+            {% if user.is_authenticated %}
+            <div id="greeting">Hello, {{ user.username }}</div>
+            <a href="{% url 'my_recipe_list' %}">My recipes</a>
+            <a href="{% url 'user_logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'user_login' %}">Login</a>
+            {% endif %}
+        </div>
     </nav>
 </header>
 <main>

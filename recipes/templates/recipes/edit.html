@@ -5,8 +5,10 @@ Edit Recipe
 {% block content %}
 <header>
     <nav>
-        <a href="{% url 'recipe_list' %}">Main page</a>
-        <a href="{% url 'create_recipe' %}">Add Recipes</a>
+        <div id="left">
+            <a href="{% url 'recipe_list' %}">Main page</a>
+            <a href="{% url 'create_recipe' %}">Add Recipes</a>
+        </div>
     </nav>
 </header>
 <main>
